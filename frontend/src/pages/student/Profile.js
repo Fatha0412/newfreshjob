@@ -94,7 +94,8 @@ const Profile = () => {
     formData.append("profileImage", file);
 
     try {
-      const res = await api.post("/upload/profile-image", formData, {
+      // ✅ FIXED: Bypassed the v1 prefix by using the absolute URL just like the resume upload
+      const res = await api.post("https://freshjob-wb5m.onrender.com/api/upload/profile-image", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       updateUser({ profileImage: res.data.profileImage });
@@ -118,7 +119,8 @@ const Profile = () => {
             <div className="profile-avatar-wrapper">
               {user.profileImage ? (
                 <img
-                  src={`https://jobs-rsr.onrender.com/${user.profileImage}`}
+                  // ✅ FIXED: Pointed the image source to your correct live backend URL
+                  src={`https://freshjob-wb5m.onrender.com/${user.profileImage.replace(/^\\|^\//, "")}`}
                   alt="Profile"
                   className="profile-avatar"
                 />
