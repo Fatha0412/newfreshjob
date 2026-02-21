@@ -44,7 +44,7 @@ const PostJob = () => {
       };
 
       // ✅ THE FINAL FIX: Using the absolute URL to bypass the 'v1' mismatch
-      await api.post("http://localhost:5000/api/jobs", formattedData);
+      await api.post("https://freshjob-wb5m.onrender.com/api/jobs", formattedData);
       
       toast.success("Job posted successfully!");
       navigate("/hr/my-jobs");

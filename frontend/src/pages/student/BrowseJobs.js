@@ -23,8 +23,8 @@ const BrowseJobs = () => {
     try {
       // ✅ Using absolute URLs for BOTH to bypass the /v1/ mismatch that causes 404s
       const [jobsRes, appsRes] = await Promise.all([
-        api.get("http://localhost:5000/api/jobs"),
-        api.get("http://localhost:5000/api/applications/my-applications"),
+        api.get("https://freshjob-wb5m.onrender.com/api/jobs"),
+        api.get("https://freshjob-wb5m.onrender.com/api/applications/my-applications"),
       ]);
       setJobs(jobsRes.data);
       setAppliedJobs(appsRes.data ? appsRes.data.map((a) => a.job?._id) : []);
@@ -33,7 +33,7 @@ const BrowseJobs = () => {
       
       // Fallback: If applications fail but jobs are available, try to at least show jobs
       try {
-        const jobsOnly = await api.get("http://localhost:5000/api/jobs");
+        const jobsOnly = await api.get("https://freshjob-wb5m.onrender.com/api/jobs");
         setJobs(jobsOnly.data);
       } catch (err) {
         toast.error("Could not connect to the server. Please ensure backend is running.");
@@ -51,7 +51,7 @@ const BrowseJobs = () => {
     setApplying(true);
     try {
       // ✅ Using absolute URL for Application POST
-      await api.post(`http://localhost:5000/api/applications/${jobId}`);
+      await api.post(`https://freshjob-wb5m.onrender.com/api/applications/${jobId}`);
       toast.success("Applied successfully!");
       setAppliedJobs([...appliedJobs, jobId]);
       fetchData();

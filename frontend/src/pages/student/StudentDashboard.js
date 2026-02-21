@@ -19,8 +19,8 @@ const StudentDashboard = () => {
     try {
       // ✅ Using absolute URLs to bypass the /v1/ mismatch
       const [appsRes, jobsRes] = await Promise.all([
-        api.get("http://localhost:5000/api/applications/my-applications"),
-        api.get("http://localhost:5000/api/jobs"),
+        api.get("https://freshjob-wb5m.onrender.com/api/applications/my-applications"),
+        api.get("https://freshjob-wb5m.onrender.com/api/jobs"),
       ]);
       
       setApplications(appsRes.data || []);

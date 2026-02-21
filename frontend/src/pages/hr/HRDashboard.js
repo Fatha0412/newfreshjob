@@ -17,7 +17,7 @@ const HRDashboard = () => {
   const fetchMyJobs = async () => {
     try {
       // ✅ THE FINAL FIX: Using the absolute URL to bypass the /v1/ ghost
-      const res = await api.get("http://localhost:5000/api/jobs/my-jobs");
+      const res = await api.get("https://freshjob-wb5m.onrender.com/api/jobs/my-jobs");
       setJobs(res.data || []);
     } catch (error) {
       console.error("Dashboard Fetch Error:", error);

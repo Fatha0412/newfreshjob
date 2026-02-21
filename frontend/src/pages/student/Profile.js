@@ -76,7 +76,7 @@ const Profile = () => {
 
     try {
       // Use absolute URL to avoid baseURL /v1 prefix
-      const res = await api.post("http://localhost:5000/api/upload/resume", formData);
+      const res = await api.post("https://freshjob-wb5m.onrender.com/api/upload/resume", formData);
       updateUser({ resume: res.data.resume });
       toast.success("Resume uploaded successfully!");
     } catch (error) {
@@ -147,7 +147,7 @@ const Profile = () => {
               {user.resume ? (
                 <div className="resume-info">
                   <a
-                    href={`http://localhost:5000/${user.resume?.replace(/^\\|^\//, "")}`}
+                    href={`https://freshjob-wb5m.onrender.com/${user.resume?.replace(/^\\|^\//, "")}`}
                     target="_blank"
                     rel="noreferrer"
                     className="btn btn-sm btn-secondary"

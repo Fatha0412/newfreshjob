@@ -19,8 +19,8 @@ const ViewApplications = () => {
     try {
       // ✅ Fixed: Using absolute URLs to bypass the /v1/ ghost for both requests
       const [appsRes, jobRes] = await Promise.all([
-        api.get(`http://localhost:5000/api/applications/job/${jobId}`),
-        api.get(`http://localhost:5000/api/jobs/${jobId}`),
+        api.get(`https://freshjob-wb5m.onrender.com/api/applications/job/${jobId}`),
+        api.get(`https://freshjob-wb5m.onrender.com/api/jobs/${jobId}`),
       ]);
       setApplications(appsRes.data);
       setJob(jobRes.data);
@@ -35,7 +35,7 @@ const ViewApplications = () => {
   const updateStatus = async (appId, status) => {
     try {
       // ✅ Fixed: Using absolute URL for status updates
-      await api.put(`http://localhost:5000/api/applications/${appId}/status`, { status });
+      await api.put(`https://freshjob-wb5m.onrender.com/api/applications/${appId}/status`, { status });
       toast.success(`Application updated to ${status}`);
       fetchData(); // Refresh the list to show the new status
     } catch (error) {
@@ -118,7 +118,7 @@ const ViewApplications = () => {
                   <td>
                     {app.resume ? (
                       <a
-                        href={`http://localhost:5000/${app.resume.replace(/^\\|^\//, "")}`}
+                        href={`https://freshjob-wb5m.onrender.com/${app.resume.replace(/^\\|^\//, "")}`}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-sm btn-secondary"

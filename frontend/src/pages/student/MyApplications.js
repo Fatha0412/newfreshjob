@@ -15,7 +15,7 @@ const MyApplications = () => {
   const fetchApplications = async () => {
     try {
       // ✅ Fixed: Using absolute URL to bypass the /v1/ ghost
-      const res = await api.get("http://localhost:5000/api/applications/my-applications");
+      const res = await api.get("https://freshjob-wb5m.onrender.com/api/applications/my-applications");
       setApplications(res.data);
     } catch (error) {
       console.error("Error fetching applications:", error);

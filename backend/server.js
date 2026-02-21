@@ -12,7 +12,7 @@ const app = express();
 // --- MIDDLEWARE ---
 
 // 1. Static Folder (Serves your Resumes and Profile Images)
-// This makes http://localhost:5000/uploads/... accessible to the frontend
+// This makes https://freshjob-wb5m.onrender.com/uploads/... accessible to the frontend
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // 2. CORS (Allows your React app at port 3000 to send requests here)
@@ -62,7 +62,7 @@ app.listen(PORT, () => {
 });
 
 // --- DEBUG TOOL ---
-// Check if your resume folder is working: http://localhost:5000/debug/list-resumes
+// Check if your resume folder is working: https://freshjob-wb5m.onrender.com/debug/list-resumes
 app.get('/debug/list-resumes', (req, res) => {
   const resumePath = path.join(__dirname, 'uploads/resumes');
   if (!fs.existsSync(resumePath)) {

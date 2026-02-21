@@ -15,7 +15,7 @@ const MyJobs = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await api.get("http://localhost:5000/api/jobs/my-jobs");
+      const res = await api.get("https://freshjob-wb5m.onrender.com/api/jobs/my-jobs");
       setJobs(res.data);
     } catch (error) {
       toast.error("Error fetching jobs");
@@ -29,7 +29,7 @@ const MyJobs = () => {
     if (!window.confirm(`Delete "${title}"?`)) return;
     try {
       // ✅ Fixed: Absolute URL for DELETE request
-      await api.delete(`http://localhost:5000/api/jobs/${jobId}`);
+      await api.delete(`https://freshjob-wb5m.onrender.com/api/jobs/${jobId}`);
       toast.success("Job deleted");
       fetchJobs();
     } catch (error) {
@@ -42,7 +42,7 @@ const MyJobs = () => {
     const newStatus = currentStatus === "active" ? "closed" : "active";
     try {
       // ✅ Fixed: Absolute URL for PUT request
-      await api.put(`http://localhost:5000/api/jobs/${jobId}`, { status: newStatus });
+      await api.put(`https://freshjob-wb5m.onrender.com/api/jobs/${jobId}`, { status: newStatus });
       toast.success(`Job ${newStatus}`);
       fetchJobs();
     } catch (error) {
