@@ -11,7 +11,7 @@ const app = express();
 
 // 🚀 AUTO-BUILDER: Create BOTH upload folders if they don't exist!
 const resumeDir = path.join(__dirname, 'uploads', 'resumes');
-const profileDir = path.join(__dirname, 'uploads', 'profile');
+const profileDir = path.join(__dirname, 'uploads', 'profiles');
 
 if (!fs.existsSync(resumeDir)) {
   fs.mkdirSync(resumeDir, { recursive: true });
@@ -20,7 +20,7 @@ if (!fs.existsSync(resumeDir)) {
 
 if (!fs.existsSync(profileDir)) {
   fs.mkdirSync(profileDir, { recursive: true });
-  console.log('✅ Created uploads/profile directory automatically');
+  console.log('✅ Created uploads/profiles directory automatically');
 }
 
 // --- MIDDLEWARE ---
