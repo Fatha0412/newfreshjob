@@ -9,6 +9,20 @@ dotenv.config();
 
 const app = express();
 
+// 🚀 AUTO-BUILDER: Create BOTH upload folders if they don't exist!
+const resumeDir = path.join(__dirname, 'uploads', 'resumes');
+const profileDir = path.join(__dirname, 'uploads', 'profile');
+
+if (!fs.existsSync(resumeDir)) {
+  fs.mkdirSync(resumeDir, { recursive: true });
+  console.log('✅ Created uploads/resumes directory automatically');
+}
+
+if (!fs.existsSync(profileDir)) {
+  fs.mkdirSync(profileDir, { recursive: true });
+  console.log('✅ Created uploads/profile directory automatically');
+}
+
 // --- MIDDLEWARE ---
 
 // 1. Static Folder (Serves your Resumes and Profile Images)
@@ -64,11 +78,11 @@ app.listen(PORT, () => {
 // --- DEBUG TOOL ---
 // Check if your resume folder is working: https://freshjob-wb5m.onrender.com/debug/list-resumes
 app.get('/debug/list-resumes', (req, res) => {
-  const resumePath = path.join(__dirname, 'uploads/resumes');
-  if (!fs.existsSync(resumePath)) {
+  const checkResumePath = path.join(__dirname, 'uploads/resumes');
+  if (!fs.existsSync(checkResumePath)) {
     return res.status(404).json({ error: "Uploads/resumes folder does not exist!" });
   }
-  fs.readdir(resumePath, (err, files) => {
+  fs.readdir(checkResumePath, (err, files) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json({ files });
   });
