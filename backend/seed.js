@@ -24,12 +24,12 @@ const seedDB = async () => {
     // Create Admin
     const admin = await User.create({
       name: "Admin User",
-      email: "admin@JOBS@RSR.com",
+      email: "admin@JOBSRSR.com",
       password: await bcrypt.hash("admin123", salt),
       role: "admin",
       phone: "9999999999",
     });
-    console.log("Admin created: admin@JOBS@RSR.com / admin123");
+    console.log("Admin created: admin@JOBSRSR.com / admin123");
 
     // Create HR Users
     const hr1 = await User.create({
@@ -158,7 +158,7 @@ const seedDB = async () => {
 
     console.log("\n--- Seed Complete ---");
     console.log("Login Credentials:");
-    console.log("  Admin:   admin@JOBS@RSR.com / admin123");
+    console.log("  Admin:   admin@JOBSRSR.com / admin123");
     console.log("  HR 1:    hr@techcorp.com / hr1234");
     console.log("  HR 2:    hr@innovate.com / hr1234");
     console.log("  Student: amit@student.com / student123");

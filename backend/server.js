@@ -56,6 +56,9 @@ mongoose.connect(process.env.MONGO_URI, {
 // Auth & Users
 app.use('/api/v1/auth', require('./routes/authRoutes'));
 
+// Admin (Handles fetching all users and admin dashboard stats)
+app.use('/api/v1/admin', require('./routes/adminRoutes'));
+
 // Jobs (Handles posting and browsing)
 app.use('/api/jobs', require('./routes/jobRoutes'));
 

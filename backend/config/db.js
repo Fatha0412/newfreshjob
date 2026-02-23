@@ -28,7 +28,7 @@ const seedData = async () => {
     // Create Admin
     const admin = await User.create({
       name: "Admin User",
-      email: "admin@JOBS@RSR.com",
+      email: "admin@JOBSRSR.com",
       password: await bcrypt.hash("admin123", salt),
       role: "admin",
       phone: "9999999999",
@@ -171,7 +171,7 @@ const seedData = async () => {
     await Job.insertMany(jobs);
 
     console.log("Database seeded with sample data!");
-    console.log("  Admin:   admin@JOBS@RSR.com / admin123");
+    console.log("  Admin:   admin@JOBSRSR.com / admin123");
     console.log("  HR:      hr@techcorp.com / hr1234");
     console.log("  HR:      hr@innovate.com / hr1234");
     console.log("  Student: amit@student.com / student123");
