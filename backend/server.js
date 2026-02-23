@@ -62,6 +62,9 @@ app.use('/api/v1/admin', require('./routes/adminRoutes'));
 // Jobs (Handles posting and browsing)
 app.use('/api/jobs', require('./routes/jobRoutes'));
 
+// Jobs Alias (Handles the Admin page request)
+app.use('/api/v1/jobs', require('./routes/jobRoutes'));
+
 // Uploads (Handles file processing logic)
 app.use('/api/upload', require('./routes/uploadRoutes'));
 
