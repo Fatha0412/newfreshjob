@@ -167,9 +167,21 @@
   color: var(--primary);
 }
 
+/* --- THE FIXED MOBILE ALIGNMENT --- */
 @media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 16px; 
+  }
+
   .menu-toggle {
-    display: block;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 44px; 
+    height: 44px;
+    padding: 0;
+    margin-right: -8px; 
+    z-index: 1005; 
   }
 
   .navbar-menu {
@@ -183,8 +195,9 @@
     gap: 16px;
     border-bottom: 1px solid var(--gray-200);
     box-shadow: var(--shadow-lg);
-    transform: translateY(-110%);
+    transform: translateY(-150%); 
     transition: transform 0.3s ease;
+    z-index: 999;
   }
 
   .navbar-menu.open {
@@ -194,27 +207,43 @@
   .nav-links {
     flex-direction: column;
     width: 100%;
+    align-items: flex-start;
   }
 
   .nav-link {
     width: 100%;
     padding: 12px 16px;
+    text-align: left;
   }
 
   .user-menu {
     flex-direction: column;
     width: 100%;
+    align-items: flex-start;
+  }
+
+  .user-info {
+    padding: 0 16px 12px 16px;
+    width: 100%;
+  }
+
+  .btn-logout {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    justify-content: center;
   }
 
   .auth-buttons {
     width: 100%;
+    flex-direction: column; 
   }
 
   .auth-buttons .btn {
-    flex: 1;
+    width: 100%;
   }
 }
 
+/* --- UNTOUCHED ANIMATIONS AND CONTENT --- */
 /* Spinner */
 .spinner {
   width: 40px;
